@@ -1,0 +1,27 @@
+{
+  "short_name": "Golf Tracker",
+  "name": "Golf Distance Tracker",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#7ed957",
+  "background_color": "#4bb3fd",
+  "description": "Track your golf shot distances, analyze performance with charts, and improve your game",
+  "categories": ["sports", "lifestyle"]
+}
