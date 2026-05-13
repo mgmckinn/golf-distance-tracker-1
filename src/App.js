@@ -8,6 +8,7 @@ import "./App.css";
 
 function App() {
   const [shots, setShots] = useState([]);
+  const [page, setPage] = useState("home");
 
   useEffect(() => {
     const saved = localStorage.getItem("golfShots");
@@ -26,17 +27,38 @@ function App() {
     <div className='container'>
       <h1>🏌️‍♂️ Golf Distance Tracker</h1>
 
-      <div className='card'>
-        <AddShotForm addShot={addShot} />
-      </div>
+      <nav className='nav-bar'>
+        <button 
+          className={page === 'home' ? 'nav-btn active' : 'nav-btn'}
+          onClick={() => setPage('home')}
+        >
+          📊 Dashboard
+        </button>
+        <button 
+          className={page === 'history' ? 'nav-btn active' : 'nav-btn'}
+          onClick={() => setPage('history')}
+        >
+          📜 Shot History
+        </button>
+      </nav>
 
-      <div className='card'>
-        <ClubAverages shots={shots} />
-      </div>
+      {page === 'home' && (
+        <>
+          <div className='card'>
+            <AddShotForm addShot={addShot} />
+          </div>
 
-      <div className='card'>
-        <ShotList shots={shots} />
-      </div>
+          <div className='card'>
+            <ClubAverages shots={shots} />
+          </div>
+        </>
+      )}
+
+      {page === 'history' && (
+        <div className='card'>
+          <ShotList shots={shots} />
+        </div>
+      )}
     </div>
   );
 }
